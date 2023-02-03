@@ -1,0 +1,16 @@
+N_tot = 135
+dr = 0
+dl = 0
+R = 3.3
+L = 5
+
+# &k = Nk * ((2 * 3.14) / N_tot)
+# dl = R * &l
+# dr = R * &r
+# dA = ((dr + dl) / 2)
+# Ok = ((dr - dl) / 2L)
+# xk = dA * cos(Ok)
+# yk = dA * sin(Ok)
+# XK = X + yk
+# YK = Y + yk
+# OK = ok + Ok
