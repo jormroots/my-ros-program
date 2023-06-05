@@ -7,6 +7,9 @@ class Car():
         self.branching_off_confirmed = False
         self.turn_at_next_left = True
         self.turn_at_next_right = True
+        self.obstacle_ahead = False
+        self.drive_around = False
+        self.turn = False
 
     def forward(self):
         self.speed_left_wheel = self.velocity

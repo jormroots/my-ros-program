@@ -16,10 +16,10 @@ class PID_Controller():
             D = (err - last_error) / self.delta_t
             PID = (self.Kp * P) + (self.Ki * self.I) + (self.Kd * D)
 
-            car.speed_right_wheel = car.velocity + (2.5 * PID)
-            car.speed_left_wheel = car.velocity - (2.5 * PID)
+            car.speed_right_wheel = car.velocity + (2.5 * PID)#2.5
+            car.speed_left_wheel = car.velocity - (2.5 * PID)#2.5
 
-            """       if PID == 0.15680000000000002:
+            """if PID == 0.15680000000000002:
                 time.sleep(0.15)
                 t = 0
                 while t < 2:
@@ -29,4 +29,4 @@ class PID_Controller():
                     t += 1
                     return
                 else:
-                    print("didn't turn right") """
+                    print("didn't turn right")"""

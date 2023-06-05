@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/jr/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/jr/catkin_ws/src/async_web_server_cpp/include/**",
+        "/home/jr/catkin_ws/src/dt-ros-commons/packages/duckietown/include/**",
+        "/home/jr/catkin_ws/src/dt-ros-commons/packages/ros_http_api/include/**",
+        "/home/jr/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+        "/home/jr/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/jr/catkin_ws/src/web_video_server/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
