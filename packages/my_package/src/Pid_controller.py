@@ -1,3 +1,5 @@
+import rospy
+
 class PID_Controller():
     def __init__(self, Kp, Ki, Kd, I, rospy_rate):
         self.Kp = Kp
@@ -7,6 +9,11 @@ class PID_Controller():
         self.delta_t = rospy_rate
 
     def apply_controller(self, car, err, last_error, ):
+        
+        """self.Kp = rospy.get_param('/Kp')
+        self.Ki = rospy.get_param('/Ki')
+        self.Kd = rospy.get_param('/Kd')"""
+        
         if err == 0:
             car.forward()
         else:

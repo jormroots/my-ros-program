@@ -9,7 +9,7 @@ class Car():
         self.turn_at_next_right = True
         self.obstacle_ahead = False
         self.drive_around = False
-        self.turn = False
+        self.turn = True
 
     def forward(self):
         self.speed_left_wheel = self.velocity
