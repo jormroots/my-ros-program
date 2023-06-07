@@ -180,7 +180,7 @@ class MyPublisherNode(DTROS):
                         rospy.sleep(2.5)
                         
                         car.turn = False
-                        
+                                                
                         bin_binary = '00000000'
                         while bin_binary == '00000000':
                             print("############################################")
@@ -194,13 +194,26 @@ class MyPublisherNode(DTROS):
                             bin_binary = bin(bin_read)[2:].zfill(8)
                         print('got out of 000000 loop')
                         
-                        car.speed_right_wheel = -0.3
+                        if bin_binary == '00000001':
+                            print("ALERT")
+                        while bin_binary != '00011000':
+                            print("emergency turn")
+                            car.speed_right_wheel = -0.2
+                            car.speed_left_wheel = 0.2
+                            speed.vel_right = car.speed_right_wheel
+                            speed.vel_left = car.speed_left_wheel
+                            self.pub.publish(speed)
+                            bin_read = bus.read_byte_data(
+                                sparkfun_device_address, sparkfun_registry_address)
+                            bin_binary = bin(bin_read)[2:].zfill(8)
+                        
+                        """ car.speed_right_wheel = -0.3
                         car.speed_left_wheel = 0.4
                         speed.vel_right = car.speed_right_wheel
                         speed.vel_left = car.speed_left_wheel
                         self.pub.publish(speed)
                         print("Last Turn")
-                        rospy.sleep(0.5)
+                        rospy.sleep(0.5) """
 
                         x += 1
 
