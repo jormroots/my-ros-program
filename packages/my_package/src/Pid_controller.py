@@ -8,12 +8,7 @@ class PID_Controller():
         self.I = I
         self.delta_t = rospy_rate
 
-    def apply_controller(self, car, err, last_error, ):
-        """         
-        self.Kp = rospy.get_param('/Kp')
-        self.Ki = rospy.get_param('/Ki')
-        self.Kd = rospy.get_param('/Kd') """
-        
+    def apply_controller(self, car, err, last_error, ):        
         if err == 0:
             car.forward()
         else:
@@ -25,15 +20,3 @@ class PID_Controller():
 
             car.speed_right_wheel = car.velocity + (2.5 * PID)#2.5
             car.speed_left_wheel = car.velocity - (2.5 * PID)#2.5
-
-            """if PID == 0.15680000000000002:
-                time.sleep(0.15)
-                t = 0
-                while t < 2:
-                    self.speed_right_wheel = 0.3
-                    self.speed_left_wheel = -0.1
-                    print(t)
-                    t += 1
-                    return
-                else:
-                    print("didn't turn right")"""
