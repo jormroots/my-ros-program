@@ -109,6 +109,13 @@ class MyPublisherNode(DTROS):
 
     def turn(self, binary):
         if binary == '11011000':
+            """car.speed_right_wheel = 0.2
+            car.speed_left_wheel = 0.2
+            speed.vel_right = car.speed_right_wheel
+            speed.vel_left = car.speed_left_wheel
+            self.pub.publish(speed)
+            time.sleep(0.3)"""
+            
             car.speed_right_wheel = 0.2
             car.speed_left_wheel = 0.07
             speed.vel_right = car.speed_right_wheel
@@ -119,6 +126,16 @@ class MyPublisherNode(DTROS):
             # time.sleep(1)
         else:
             print("Terra")
+            
+    def forward(self, binary):
+        if binary == '11111111':
+            car.speed_right_wheel = 0.18
+            car.speed_left_wheel = 0.07
+            speed.vel_right = car.speed_right_wheel
+            speed.vel_left = car.speed_left_wheel
+            self.pub.publish(speed)
+            time.sleep(0.3)
+            print('tere')
 
     def simple_track(self):
         global error
@@ -134,7 +151,9 @@ class MyPublisherNode(DTROS):
             if binary == '00000000':
                 self.stopper(binary) 
             elif binary == '11011000':
-                self.turn(binary)            
+                self.turn(binary)
+            elif binary == '11111111':
+                self.forward(binary)            
             elif car.obstacle_ahead:
                 self.check_obstacle_ahead()
                 if car.drive_around:
@@ -148,14 +167,16 @@ class MyPublisherNode(DTROS):
                         speed.vel_right = car.speed_right_wheel
                         speed.vel_left = car.speed_left_wheel
                         self.pub.publish(speed)
+                        print("Turn1 Right")
                         rospy.sleep(1)
                         
                         #while binary == '00000000'
-                        car.speed_right_wheel = 0.4
+                        car.speed_right_wheel = 0.45
                         car.speed_left_wheel = 0.14
                         speed.vel_right = car.speed_right_wheel
                         speed.vel_left = car.speed_left_wheel
                         self.pub.publish(speed)
+                        print("Turn2 Left")
                         rospy.sleep(2.5)
                         
                         car.turn = False
@@ -178,6 +199,7 @@ class MyPublisherNode(DTROS):
                         speed.vel_right = car.speed_right_wheel
                         speed.vel_left = car.speed_left_wheel
                         self.pub.publish(speed)
+                        print("Last Turn")
                         rospy.sleep(0.5)
 
                         x += 1
