@@ -1,5 +1,3 @@
-import rospy
-
 class PID_Controller():
     def __init__(self, Kp, Ki, Kd, I, rospy_rate):
         self.Kp = Kp
@@ -18,5 +16,5 @@ class PID_Controller():
             D = (err - last_error) / self.delta_t
             PID = (self.Kp * P) + (self.Ki * self.I) + (self.Kd * D)
 
-            car.speed_right_wheel = car.velocity + (2.5 * PID)#2.5
-            car.speed_left_wheel = car.velocity - (2.5 * PID)#2.5
+            car.speed_right_wheel = car.velocity + (2.5 * PID)
+            car.speed_left_wheel = car.velocity - (2.5 * PID)
