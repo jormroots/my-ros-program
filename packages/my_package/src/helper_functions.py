@@ -24,24 +24,17 @@ class Weird_timer():
 
     def start(self):
         self.initial = time.time()
-        print('start')
 
     def stop(self):
         self.final = time.time()
-        print('stop')
 
     def result(self):
-        print(self.initial)
-        print(self.final)
         res = self.final - self.initial
-        print('result', round(res, 2))
         return (round(self.final - self.initial, 2))
 
     def reset(self):
         self.initial = 0
         self.final = 0
-        print('reset')
-
 
 def detect_atypical_road_conditions(read):
     bits = bin(read)[2:].zfill(8)
